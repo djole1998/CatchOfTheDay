@@ -23,12 +23,16 @@ class AddFishForm extends Component {
                     <option value="available">Fresh!</option>
                     <option value="unavailable">Sold Out!</option>
                 </select>
-                <textarea ref={ (input) => this.desc = input } placeholder="Fish Desc"></textarea>
+                <textarea ref={ (input) => this.desc = input } placeholder="Fish Desc"> </textarea>
                 <input ref={ (input) => this.image = input } type="text" placeholder="Fish Image"/>
                 <button type="submit">+ Add Item</button>
             </form>
         );
     }
 }
+
+AddFishForm.propTypes = {
+    addFish: React.PropTypes.func.isRequired
+};
 
 export default AddFishForm;

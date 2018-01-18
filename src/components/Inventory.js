@@ -16,7 +16,7 @@ class Inventory extends Component {
             [e.target.name]: [e.target.value]
         };
         this.props.updateFish(key, updatedFish);
-    };
+    }
 
 
     renderInventory(key) {
@@ -34,9 +34,10 @@ class Inventory extends Component {
                     <option value="unavailable">Sold Out!</option>
                 </select>
                 <textarea type="text" name="desc" value={ fish.desc } placeholder="Fish Desc"
-                          onChange={ (e) => this.handleChange(e, key) }></textarea>
+                          onChange={ (e) => this.handleChange(e, key) }> </textarea>
                 <input type="text" name="image" value={ fish.image } placeholder="Fish Image"
                        onChange={ (e) => this.handleChange(e, key) }/>
+                <button onClick={ () => this.props.removeFish(key) }>Remove Fish</button>
             </div>
         );
     }
@@ -52,5 +53,13 @@ class Inventory extends Component {
         );
     }
 }
+
+Inventory.propTypes = {
+    fishes: React.PropTypes.object.isRequired,
+    updateFish: React.PropTypes.func.isRequired,
+    removeFish: React.PropTypes.func.isRequired,
+    addFish: React.PropTypes.func.isRequired,
+    loadSamples: React.PropTypes.func.isRequired,
+};
 
 export default Inventory;
